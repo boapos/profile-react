@@ -19,6 +19,8 @@ const RecoContainer = ({ darkMode }) => {
   const [enableEdit, setEnableEdit] = useState(false)
   const [id, setId] = useState(null)
 
+  const [temp, setTemp] = useState([])
+
   const initialAlert = {
     type: '',
     message: ''
@@ -38,6 +40,8 @@ const RecoContainer = ({ darkMode }) => {
         setText$(toEdit.text)
         setEnableEdit(true)
         return entries
+      case 'retrieve-localStorage':
+        return temp
       default:
         return entries
     }
@@ -97,6 +101,20 @@ const RecoContainer = ({ darkMode }) => {
     }
     return () => clearTimeout(timer);
   }, [alert])
+
+  useEffect(() => { // retrieve from local storage
+    if (localStorage.getItem('entries') === null) {
+      console.log('true')
+      localStorage.setItem('entries', JSON.stringify([]))
+    } else {
+      setTemp(JSON.parse(localStorage.getItem('entries')))
+      dispatch({ type:'retrieve-localStorage' })
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('entries', JSON.stringify(entries))
+  }, [entries])
 
   return (
     <div className="container" id="recommendations">

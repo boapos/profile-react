@@ -19,16 +19,10 @@ const EditForm = ({ dispatch, name$, setName$, pos$, setPos$, text$, setText$, e
     setEnableEdit(false)
   }
 
-  const clickAnywhere = e => {
-    if (enableEdit ===  true) {
-      setEnableEdit(false)
-    }
-  }
-
   return (
-    <div className={enableEdit ? 'edit-form disp' : 'edit-form'} onClick={clickAnywhere}>
+    <div className={enableEdit ? 'edit-form disp' : 'edit-form'}>
       <div className="form-main">
-        <div className="form-div" onClick={e => {e.stopPropagation()}}>
+        <div className="form-div">
           <form className="form" onSubmit={submitHandler}>
             <i className="close fas fa-times" onClick={closeHandler}></i>
             <div className="name">
