@@ -5,7 +5,7 @@ const HeroSection = () => {
     // <div className="hero-section">
     //   <p className="intro">Hi! I'm <strong>Bruce</strong>.</p>
     // </div>
-  <div className="hero-section">
+  <div id="home" className="hero-section">
     <div className="animated-title">
       <div className="text-top">
         <div>

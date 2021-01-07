@@ -69,12 +69,6 @@ const RecoContainer = ({ darkMode }) => {
   const [entries, dispatch] = useReducer(reducer, [])
   const [alert, alertDispatch] = useReducer(alertReducer, initialAlert)
 
-  const escHandler = e => {
-    if (e.key === 'Escape') {
-      setEnableEdit(false)
-    }
-  }
-
   useEffect(() => {
     if (enableEdit === true) {
       document.querySelector('#edit-name').focus()
@@ -82,22 +76,12 @@ const RecoContainer = ({ darkMode }) => {
   }, [enableEdit])
 
   useEffect(() => {
-    if (enableEdit === true) {
-      document.addEventListener('keydown', escHandler)
-    }
-    return () => {
-      document.removeEventListener('keydown', escHandler)
-    }
-  // eslint-disable-next-line
-  }, [enableEdit])
-
-  useEffect(() => {
     let timer
     if (alert.type === '') {
       document.querySelector('.alert-container').style = 'visibility: hidden'
     } else {
-      document.querySelector('.alert-container').style = 'visibility: visible,'
-      timer = setTimeout(() => document.querySelector('.alert-container').style = 'visibility: hidden', 2000)
+      document.querySelector('.alert-container').style = 'visibility: visible'
+      timer = setTimeout(() => document.querySelector('.alert-container').style = 'visibility: hidden; transition: visibility 0s linear 300ms, opacity 0.2s; opacity: 0', 2500)
     }
     return () => clearTimeout(timer);
   }, [alert])
@@ -112,7 +96,7 @@ const RecoContainer = ({ darkMode }) => {
     }
   }, [])
 
-  useEffect(() => {
+  useEffect(() => { // save to local storage
     localStorage.setItem('entries', JSON.stringify(entries))
   }, [entries])
 

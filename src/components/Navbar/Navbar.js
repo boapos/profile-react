@@ -55,7 +55,7 @@ const Navbar = () => {
 
   return (
     <nav className={top ? 'scrolled-top navbar-items' : 'navbar-items'} onClick={e => e.stopPropagation()}>
-      <h1 className="navbar-logo">Bruce Apos</h1>
+      <h1 className="navbar-logo"><a href="#home">Bruce Apos</a></h1>
       <div className="menu-icon" onClick={() => setClickedMenu(!clickedMenu)}>
         <i className={clickedMenu ? 'fas fa-times' : 'fas fa-bars'}></i>
       </div>
