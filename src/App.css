@@ -58,6 +58,7 @@ li {
   font-family: "Roboto Slab", serif;
   padding: 0 20px;
   white-space: nowrap;
+  letter-spacing: -0.05rem;
 }
 
 .nav-menu {
@@ -166,7 +167,7 @@ input:checked + .slider:before {
 /* hero-section */
 .hero-section {
   height: 100vh;
-  position: relative;
+  /* position: relative; */
 }
 .intro {
   font-family: "Roboto Slab", serif;
@@ -394,11 +395,38 @@ textarea:focus::placeholder {
   padding-left: 20px;
 }
 .dark-mode .alert {
-  background-color: #eee;
-  color: #000;
+  border: 1px solid #fff;
+}
+
+/* footer */
+.footer {
+  background-color: #000;
+  color: #fff;
+}
+
+.dark-mode .footer {
+  border-top: 1px solid #fff;
+}
+
+.footer ul {
+  display: flex;
+  justify-content: space-around;
+  max-width: 350px;
+  margin: 15px auto;
+  font-size: 2rem;
 }
 
 @media screen and (max-width: 900px) {
+  .nav-links {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+  .nav-links:last-child {
+    margin-right: 8px;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .nav-menu {
     flex-direction: column;
     width: 100%;
@@ -461,7 +489,96 @@ textarea:focus::placeholder {
     right: 20px;
     top: 100px;
   }
-  .intro {
-    left: 0;
+}
+
+/* hero-section */
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:700");
+@keyframes showTopText {
+  0% {
+    transform: translate3d(0, 100%, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(0, 50%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes showBottomText {
+  0% {
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animated-title {
+  color: #000;
+  /* font-family: Roboto, Arial, sans-serif; */
+  font-family: "Roboto Slab", serif;
+  font-weight: bold;
+  letter-spacing: -0.05rem;
+  height: 90vmin;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-70%, -40%);
+  width: 80vmin;
+}
+.dark-mode .animated-title {
+  color: #fff;
+}
+.animated-title > div {
+  height: 50%;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+.animated-title > div div {
+  font-size: 12vmin;
+  padding: 2vmin 0;
+  position: absolute;
+}
+.animated-title > div div span {
+  display: block;
+}
+.animated-title > div.text-top {
+  border-bottom: 1vmin solid #000;
+  top: 0;
+}
+.dark-mode .animated-title > div.text-top {
+  border-bottom: 1vmin solid #fff;
+}
+.animated-title > div.text-top div {
+  animation: showTopText 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  bottom: -2%;
+  transform: translate(0, 100%);
+}
+.animated-title > div.text-top div span:first-child {
+  color: #000;
+}
+.dark-mode .animated-title > div.text-top div span:first-child {
+  color: #fff;
+}
+.animated-title > div.text-bottom {
+  bottom: 2%;
+}
+.animated-title > div.text-bottom div {
+  animation: showBottomText 0.5s;
+  animation-delay: 1.75s;
+  animation-fill-mode: forwards;
+  top: 0;
+  transform: translate(0, -100%);
+}
+
+@media screen and (max-width: 1000px) {
+  .animated-title {
+    transform: translate(-50%, -40%);
+    width: 80vmin;
   }
 }

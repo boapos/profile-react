@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import MenuItems from './MenuItems'
 
 const Navbar = () => {
-  const [clickedMenu, setClickedMenu] = useState(false)
+  
   const [top, setTop] = useState(true)
+  const [clickedMenu, setClickedMenu] = useState(false)
 
   const scrollTop = () => {
     let scrolled = document.scrollingElement.scrollTop
@@ -27,11 +28,17 @@ const Navbar = () => {
     }
   }
 
+  const clickCloseMenu = () => {
+    setClickedMenu(false)
+  }
+
   useEffect(() => {
+    document.addEventListener('click', clickCloseMenu)
     document.addEventListener('scroll', scrollTop)
     document.addEventListener('scroll', scrollCloseMenu)
     document.querySelector('.navbar-items').addEventListener('click', linkClicked)
     return () => {
+      document.removeEventListener('click', clickCloseMenu)
       document.removeEventListener('scroll', scrollTop)
       document.removeEventListener('scroll', scrollCloseMenu)
       document.querySelector('.navbar-items').removeEventListener('click', linkClicked)
@@ -47,7 +54,7 @@ const Navbar = () => {
   }, [clickedMenu])
 
   return (
-    <nav className={top ? 'scrolled-top navbar-items' : 'navbar-items'}>
+    <nav className={top ? 'scrolled-top navbar-items' : 'navbar-items'} onClick={e => e.stopPropagation()}>
       <h1 className="navbar-logo">Bruce Apos</h1>
       <div className="menu-icon" onClick={() => setClickedMenu(!clickedMenu)}>
         <i className={clickedMenu ? 'fas fa-times' : 'fas fa-bars'}></i>

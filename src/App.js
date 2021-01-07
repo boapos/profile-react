@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar'
 import HeroSection from './components/HeroSection'
 import DarkMode from './components/DarkMode'
 import RecoContainer from './components/Recommendations/RecoContainer'
+import Footer from './components/Footer'
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -14,7 +15,7 @@ function App() {
       <DarkMode setDarkMode={setDarkMode} />
       <HeroSection />
       <RecoContainer darkMode={darkMode} />
-
+      <Footer />
     </div>
   )
 }
