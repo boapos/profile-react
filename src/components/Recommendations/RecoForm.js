@@ -1,14 +1,19 @@
 import React from 'react'
 
-const RecoForm = ({ dispatch, name, setName, pos, setPos, text, setText, enableEdit }) => {
+const RecoForm = ({ dispatch, name, setName, pos, setPos, text, setText, enableEdit, alertDispatch }) => {
 
 const submitHandler = e => {
   e.preventDefault()
-  const date = new Date().toLocaleTimeString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'})
-  dispatch({ type: 'add-entry', payload: { name: name, pos: pos, text: text, date: date } })
-  setName('')
-  setPos('')
-  setText('')
+  if (name === '' || pos === '' || text === '') {
+    alertDispatch({ type: 'invalid-input' })
+  } else {
+    const date = new Date().toLocaleTimeString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'})
+    dispatch({ type: 'add-entry', payload: { name: name, pos: pos, text: text, date: date } })
+    alertDispatch({ type: 'new-entry' })
+    setName('')
+    setPos('')
+    setText('')
+  }
 }
 
   return (

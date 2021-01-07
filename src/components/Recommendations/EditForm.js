@@ -1,23 +1,22 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
-const EditForm = ({ dispatch, name$, setName$, pos$, setPos$, text$, setText$, enableEdit, setEnableEdit, id }) => {
+const EditForm = ({ dispatch, name$, setName$, pos$, setPos$, text$, setText$, enableEdit, setEnableEdit, id, alertDispatch }) => {
 
   const submitHandler = e => {
     e.preventDefault()
-    const date = '(Edited) ' + new Date().toLocaleTimeString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'})
-    dispatch({ type: 'delete-entry', payload: { id: id } })
-    dispatch({ type: 'add-entry', payload: { name: name$, pos: pos$, text: text$, date: date } })
-    setEnableEdit(false)
+    if (name$ === '' || pos$ === '' || text$ === '') {
+      // create own alert here
+    } else {
+      const date = '(Edited) ' + new Date().toLocaleTimeString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'})
+      dispatch({ type: 'delete-entry', payload: { id: id } })
+      dispatch({ type: 'add-entry', payload: { name: name$, pos: pos$, text: text$, date: date } })
+      alertDispatch({ type: 'save-edit' })
+      setEnableEdit(false)
+    }
   }
 
   const closeHandler = () => { 
     setEnableEdit(false)
-  }
-
-  const escHandler = e => {
-    if (e.key === 'Escape') {
-      setEnableEdit(false)
-    }
   }
 
   const clickAnywhere = e => {
@@ -25,16 +24,6 @@ const EditForm = ({ dispatch, name$, setName$, pos$, setPos$, text$, setText$, e
       setEnableEdit(false)
     }
   }
-
-  useEffect(() => {
-    if (enableEdit === true) {
-      document.addEventListener('keydown', escHandler)
-    }
-    return () => {
-      document.removeEventListener('keydown', escHandler)
-    }
-  // eslint-disable-next-line
-  }, [enableEdit])
 
   return (
     <div className={enableEdit ? 'edit-form disp' : 'edit-form'} onClick={clickAnywhere}>

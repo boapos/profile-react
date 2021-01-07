@@ -188,12 +188,10 @@ input:checked + .slider:before {
 /* form */
 .form-div {
   background-color: #fff;
-  padding: 30px;
+  padding: 20px 30px 20px 30px;
   max-width: 650px;
-  margin: 20px auto;
+  margin: 0 auto;
   border-radius: 7px;
-  /* box-shadow: 0 0 20px #eee; */
-  /* border: solid 1px #000; */
 }
 
 .dark-mode .form-div {
@@ -205,7 +203,7 @@ input:checked + .slider:before {
 }
 
 .form-main {
-  padding: 10px;
+  padding: 0 10px;
 }
 
 textarea {
@@ -308,7 +306,7 @@ textarea:focus::placeholder {
   font-size: 1.5rem;
   position: relative;
   left: 50%;
-  bottom: 10px;
+  bottom: 1px;
 }
 
 .close:hover {
@@ -329,7 +327,7 @@ textarea:focus::placeholder {
   margin: 0 auto;
   margin-bottom: 30px;
   text-align: left;
-  padding: 3px 10px;
+  padding: 8px 10px;
 }
 
 .dark-mode .entry {
@@ -360,8 +358,8 @@ textarea:focus::placeholder {
 
 .mod {
   position: absolute;
-  top: 1px;
-  right: 9px;
+  top: 6px;
+  right: 11px;
   font-size: 1.1rem;
 }
 
@@ -377,6 +375,27 @@ textarea:focus::placeholder {
 .entry .fa-times:hover {
   cursor: pointer;
   opacity: 0.7;
+}
+
+/* alert */
+.alert-container {
+  padding: 0 10px;
+  margin-top: 15px;
+}
+
+.alert {
+  background-color: #000;
+  color: #fff;
+  max-width: 590px;
+  height: 60px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+.dark-mode .alert {
+  background-color: #eee;
+  color: #000;
 }
 
 @media screen and (max-width: 900px) {
