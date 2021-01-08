@@ -296,7 +296,7 @@ textarea:focus::placeholder {
 }
 
 #dp {
-  width: 250px;
+  width: 280px;
   border-radius: 50%;
   margin-top: 50px;
 }
@@ -306,14 +306,14 @@ textarea:focus::placeholder {
 .schools {
   display: flex;
   justify-content: space-around;
-  max-width: 650px;
-  margin: 70px auto 10px auto;
+  max-width: 700px;
+  margin: 50px auto 10px auto;
 }
 
 /* experiences */
 .exp-list {
   max-width: 650px;
-  margin: 50px auto 0 auto;
+  margin: 40px auto 0 auto;
   text-align: left;
   padding: 0 20px;
 }
@@ -326,7 +326,7 @@ textarea:focus::placeholder {
 }
 
 .job {
-  font-weight: normal;
+  font-style: italic;
 }
 
 .exp-list h4 {
@@ -334,16 +334,35 @@ textarea:focus::placeholder {
 }
 
 .schools img {
-  height: 150px;
-  margin-bottom: 15px;
+  height: 170px;
+  margin-bottom: 4px;
+  margin-top: 20px;
 }
-#uplb,
+
 #lsa {
   border-radius: 50%;
 }
 
 .schools {
   border-radius: 50%;
+}
+
+/* hobbies */
+.hobby-pics {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.hobby-pics img {
+  height: 160px;
+  border-radius: 50%;
+  margin: 0 15px;
+  overflow: hidden;
+}
+.hobby-list {
+  line-height: 1.7rem;
 }
 
 /* edit form */
@@ -452,7 +471,7 @@ textarea:focus::placeholder {
 }
 
 .entry .fa-edit:hover,
-.entry .fa-times:hover {
+.entry .fa-trash:hover {
   cursor: pointer;
   opacity: 0.7;
 }
@@ -469,7 +488,7 @@ textarea:focus::placeholder {
   background-color: #000;
   color: #fff;
   max-width: 590px;
-  height: 60px;
+  height: 55px;
   margin: 0 auto;
   display: flex;
   align-items: center;
