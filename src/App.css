@@ -60,6 +60,9 @@ li {
   white-space: nowrap;
   letter-spacing: -0.05rem;
 }
+.navbar-logo:hover {
+  cursor: pointer;
+}
 
 .nav-menu {
   display: flex;
@@ -72,6 +75,11 @@ li {
 }
 
 .nav-links:hover {
+  border-bottom: solid 4px #fff;
+  cursor: pointer;
+}
+
+.active-menuitems {
   border-bottom: solid 4px #fff;
 }
 
@@ -276,6 +284,66 @@ input:focus::placeholder {
 }
 textarea:focus::placeholder {
   color: transparent;
+}
+
+/* about */
+
+#about p {
+  max-width: 600px;
+  margin: 20px auto 10px auto;
+  line-height: 2rem;
+  padding: 10px;
+}
+
+#dp {
+  width: 250px;
+  border-radius: 50%;
+  margin-top: 50px;
+}
+
+/* education */
+
+.schools {
+  display: flex;
+  justify-content: space-around;
+  max-width: 650px;
+  margin: 70px auto 10px auto;
+}
+
+/* experiences */
+.exp-list {
+  max-width: 650px;
+  margin: 50px auto 0 auto;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.exp-list li {
+  margin: 15px 0;
+  margin-left: 20px;
+  list-style-type: square;
+  line-height: 1.6rem;
+}
+
+.job {
+  font-weight: normal;
+}
+
+.exp-list h4 {
+  font-size: 1.2rem;
+}
+
+.schools img {
+  height: 150px;
+  margin-bottom: 15px;
+}
+#uplb,
+#lsa {
+  border-radius: 50%;
+}
+
+.schools {
+  border-radius: 50%;
 }
 
 /* edit form */
@@ -518,6 +586,11 @@ hr {
   .theme-switch-wrapper {
     right: 20px;
     top: 100px;
+  }
+
+  .schools {
+    margin-top: 40px;
+    flex-direction: column;
   }
 }
 

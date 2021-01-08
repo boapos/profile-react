@@ -101,7 +101,7 @@ const RecoContainer = ({ darkMode }) => {
   }, [entries])
 
   return (
-    <div className="container" id="recommendations">
+    <div id="recommendations" className="container" id="recommendations">
       <h3>Recommendations</h3>
       <Alert alert={alert} />
 

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import MenuItems from './MenuItems'
+import { Link } from 'react-scroll'
 
-const Navbar = () => {
+const Navbar = ({ clickedMenu, setClickedMenu }) => {
   
   const [top, setTop] = useState(true)
-  const [clickedMenu, setClickedMenu] = useState(false)
 
   const scrollTop = () => {
     let scrolled = document.scrollingElement.scrollTop
@@ -43,6 +43,7 @@ const Navbar = () => {
       document.removeEventListener('scroll', scrollCloseMenu)
       document.querySelector('.navbar-items').removeEventListener('click', linkClicked)
     }
+  // eslint-disable-next-line
   }, [])
 
   useEffect(() => {  
@@ -55,13 +56,13 @@ const Navbar = () => {
 
   return (
     <nav className={top ? 'scrolled-top navbar-items' : 'navbar-items'} onClick={e => e.stopPropagation()}>
-      <h1 className="navbar-logo"><a href="#home">Bruce Apos</a></h1>
+      <h1 className="navbar-logo"><Link smooth={true} duration={500} to="home">Bruce Apos</Link></h1>
       <div className="menu-icon" onClick={() => setClickedMenu(!clickedMenu)}>
         <i className={clickedMenu ? 'fas fa-times' : 'fas fa-bars'}></i>
       </div>
       <ul className={clickedMenu ? 'nav-menu active' : 'nav-menu'}>
         {MenuItems.map((item, index) => (
-          <li key={index}><a href={item.url} className={item.cName}>{item.title}</a></li>
+          <li key={index}><Link smooth={true} duration={500} offset={-70} spy={true} activeClass='active-menuitems' to={item.url} className={item.cName}>{item.title}</Link></li>
         ))}
       </ul>
     </nav>

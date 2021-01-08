@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useSwipeable } from 'react-swipeable'
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import HeroSection from './components/HeroSection'
@@ -11,11 +12,20 @@ import Experiences from './components/Experiences'
 import Hobbies from './components/Hobbies'
 
 function App() {
+
   const [darkMode, setDarkMode] = useState(false)
+  const [clickedMenu, setClickedMenu] = useState(false)
+
+  const handlers = useSwipeable ({
+    onSwipedLeft: () => setClickedMenu(true),
+    onSwipedRight: () => setClickedMenu(false),
+    // preventDefaultTouchmoveEvent: true,
+    trackMouse: true 
+  })
 
   return (
-    <div className={darkMode ? 'dark-mode' : ''}>
-      <Navbar />
+    <div className={darkMode ? 'dark-mode' : ''} {...handlers} >
+      <Navbar clickedMenu={clickedMenu} setClickedMenu={setClickedMenu} />
       <DarkMode setDarkMode={setDarkMode} />
       <HeroSection />
       <AboutMe />
