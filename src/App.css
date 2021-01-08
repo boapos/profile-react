@@ -356,9 +356,9 @@ textarea:focus::placeholder {
 }
 
 .hobby-pics img {
-  height: 160px;
+  height: 130px;
   border-radius: 50%;
-  margin: 0 15px;
+  margin: 0 10px;
   overflow: hidden;
 }
 .hobby-list {
@@ -610,6 +610,9 @@ hr {
   .schools {
     margin-top: 40px;
     flex-direction: column;
+  }
+  .hobby-pics {
+    flex-wrap: wrap;
   }
 }
 
