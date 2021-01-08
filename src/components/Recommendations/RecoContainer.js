@@ -86,6 +86,18 @@ const RecoContainer = ({ darkMode }) => {
     return () => clearTimeout(timer);
   }, [alert])
 
+
+  const closeEditForm = () => {
+    if (enableEdit === true) {
+      setEnableEdit(false)
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('backbutton', closeEditForm)
+    return () => document.removeEventListener('backbutton', closeEditForm)
+  }, [])
+
   useEffect(() => { // retrieve from local storage
     if (localStorage.getItem('entries') === null) {
       console.log('true')
