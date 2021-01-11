@@ -412,6 +412,11 @@ textarea:focus::placeholder {
   margin-bottom: -25px;
 }
 
+/* recommendations */
+#recommendations {
+  min-height: 80vh;
+}
+
 /* entry */
 .reco-list {
   padding: 10px;

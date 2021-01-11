@@ -9,6 +9,7 @@ const Experiences = () => {
           <ul>
             <li><span className="job">Intern</span>, Summer Science Internship Program at the Information Systems & Technology Division, NPC MinGen (2013)</li>
             <li><span className="job">Retailer</span>, Sirkito (2018-2020)</li>
+            <li><span className="job">Software Engineer Trainee</span>, White Cloak Technologies, Inc. (2020 - present)</li>
           </ul>
         <h4>Extracurricular</h4>
             <ul>

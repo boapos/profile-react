@@ -1,4 +1,5 @@
 import React, { useReducer, useState, useEffect } from 'react'
+// import { Element, scroller } from 'react-scroll'
 import Alert from './Alert'
 import EditForm from './EditForm'
 import RecoForm from './RecoForm'
@@ -80,6 +81,10 @@ const RecoContainer = ({ darkMode }) => {
     if (alert.type === '') {
       document.querySelector('.alert-container').style = 'visibility: hidden'
     } else {
+      // scroller.scrollTo('recommendations', {
+      //   duration: 300,
+      //   smooth: true,
+      //   offset: -100})
       document.querySelector('.alert-container').style = 'visibility: visible'
       timer = setTimeout(() => document.querySelector('.alert-container').style = 'visibility: hidden; transition: visibility 0s linear 300ms, opacity 0.2s; opacity: 0', 2500)
     }
@@ -87,16 +92,16 @@ const RecoContainer = ({ darkMode }) => {
   }, [alert])
 
 
-  const closeEditForm = () => {
-    if (enableEdit === true) {
-      setEnableEdit(false)
-    }
-  }
+  // const closeEditForm = () => {
+  //   if (enableEdit === true) {
+  //     setEnableEdit(false)
+  //   }
+  // }
 
-  useEffect(() => {
-    document.addEventListener('backbutton', closeEditForm)
-    return () => document.removeEventListener('backbutton', closeEditForm)
-  }, [])
+  // useEffect(() => {
+  //   document.addEventListener('backbutton', closeEditForm)
+  //   return () => document.removeEventListener('backbutton', closeEditForm)
+  // }, [])
 
   useEffect(() => { // retrieve from local storage
     if (localStorage.getItem('entries') === null) {
@@ -114,7 +119,9 @@ const RecoContainer = ({ darkMode }) => {
 
   return (
     <div id="recommendations" className="container">
+      {/* <Element name="recommendations"></Element> */}
       <h3>Recommendations</h3>
+      
       <Alert alert={alert} />
 
       <RecoForm dispatch={dispatch} 

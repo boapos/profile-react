@@ -16,9 +16,10 @@ const Hobbies = () => {
         <li>Badminton</li>
         <li>Billiards</li>
         <li>Biking</li>
-        <li>Video games: MOBA, DOOM, racing sims</li>
+        <li>Video games: MOBAs, DOOM, racing sims</li>
         <li>Electronics</li>
         <li>Audio gears and stuff</li>
+        <li>Sneakers</li>
         <li>Bass</li>
         <li>Hydroponics</li>
         <li></li>
